@@ -14,8 +14,12 @@ export class ShoppingListComponent implements OnInit {
   ];
 
   constructor() { }
-
+// isme hi he??hmm dikhao kaha likha he
   ngOnInit() {
+  }
+
+  onIngredientAdded(ingredient:Ingredient){
+    this.ingredients.push(ingredient);
   }
 
 }
