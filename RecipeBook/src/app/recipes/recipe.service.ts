@@ -2,9 +2,11 @@ import { EventEmitter, Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class RecipeService{
+    recipeChanged = new Subject<Recipe[]>();
 
     //recipeSelected = new EventEmitter<Recipe>();
 
@@ -16,11 +18,19 @@ export class RecipeService{
             (new Ingredient('sauce',1)),
         ]),
         new Recipe('Momos','Yum Momos for hungry Tummy',
-        'http://media3.sailusfood.com/wp-content/uploads/2016/03/veg-momos-recipe.jpg',
+        'https://www.whatsuplife.in/noida/blog/wp-content/uploads/2017/02/Kalpak-Restaurant-Cafe-1.jpg',
         [
             (new Ingredient('Maida', 1/2)),
             (new Ingredient('veggies',2))
         ]),
+        new Recipe('Mutton Curry','Mutton dipped in a creamy gravy',
+        'https://www.archanaskitchen.com/images/archanaskitchen/1-Author/garimasgautam-gmail.com/Nepalese_mutton_Curry_recipe_edited1.JPG',
+        [
+            (new Ingredient('onion', 20)),
+            (new Ingredient('ginger',3)),
+            (new Ingredient('garlic',13))
+        ])
+
         
     ];
 
@@ -36,6 +46,21 @@ export class RecipeService{
 
     addIngredientToShoppingList(ingredients: Ingredient[]){
         this.shoppingListService.addIngredients(ingredients);
+    }
+
+    addRecipe(recipe: Recipe){
+        this.recipes.push(recipe);
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    updateRecipe(index: number, newRecipe: Recipe){
+        this.recipes[index] = newRecipe;
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    deleteRecipe(index: number){
+        this.recipes.splice(index,1);
+        this.recipeChanged.next(this.recipes.slice());
     }
 
 }
