@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { RecipeService } from "../recipes/recipe.service";
 import { Recipe } from "../recipes/recipe.model";
@@ -14,9 +14,11 @@ export class DataStorageService{
 
     storeRecipes(){
         const token = this.authService.getToken();
+        const header = new HttpHeaders().set('authorization' , 'hdbvhdvhvdbhf'); 
         
        return this.httpClient.put('https://ng-recipe-book-9a4ab.firebaseio.com/recipes.json?auth=' + token,this.recipeService.getRecipes(),{
-          observe: 'events' 
+          observe: 'body',
+          headers: header  // it wont work with firebase but generally it could be a way
        });
     }
 
