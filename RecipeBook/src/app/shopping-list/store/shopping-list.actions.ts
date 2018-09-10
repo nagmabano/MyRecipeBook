@@ -5,7 +5,9 @@ import { Ingredient } from '../../shared/ingredient.model';
 
  export class AddIngredient implements Action {
      readonly type = ADD_INGREDIENT;
-     payload: Ingredient;
+
+     constructor(public payload: Ingredient){}
+     
  }
 
  export type ShoppingListActions = AddIngredient;
