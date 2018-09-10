@@ -1,8 +1,6 @@
 import * as ShoppingListActions from './shopping-list.actions';
 import { Ingredient } from '../../shared/ingredient.model';
 
-export const ADD_INGREDIENTS = 'ADD_INGREDIENTS';
-
 const initialState = {
     ingredients: [
         new Ingredient('Apple',4),
