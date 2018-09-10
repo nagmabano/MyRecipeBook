@@ -6,17 +6,16 @@ const initialState = {
         new Ingredient('Apple',4),
         new Ingredient('Tomatoes',10),
     ]
-}
+};
 
 export function shoppingListReducer(state = initialState, action: ShoppingListActions.ShoppingListActions){
     switch(action.type){
         case ShoppingListActions.ADD_INGREDIENT:
-            return{
+            return {
                 ...state,
                 ingredients: [...state.ingredients, action.payload]
-            }
+            };
         default:
             return state;
     }
-   
 }

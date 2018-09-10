@@ -3,9 +3,9 @@ import { Ingredient } from '../../shared/ingredient.model';
 
  export const ADD_INGREDIENT = 'ADD_INGREDIENT';
 
- export class AddIngredients implements Action {
+ export class AddIngredient implements Action {
      readonly type = ADD_INGREDIENT;
      payload: Ingredient;
  }
 
- export type ShoppingListActions = AddIngredients;
+ export type ShoppingListActions = AddIngredient;
