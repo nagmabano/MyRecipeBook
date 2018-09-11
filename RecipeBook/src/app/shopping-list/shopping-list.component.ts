@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
 
-  private subscription: Subscription;
+  //private subscription: Subscription;
 
     shoppingListState: Observable<{ingredients: Ingredient[]}>;
   //ingredients:Ingredient[];
@@ -31,7 +31,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.subscription.unsubscribe();
+    //this.subscription.unsubscribe();
   }
 
   onEditItem(index: number){
