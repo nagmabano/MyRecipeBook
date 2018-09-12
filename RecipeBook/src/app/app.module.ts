@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { StoreModule } from '@ngrx/store';
 import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
+import { reducers } from './store/app.reducers';
 
 
 
@@ -26,7 +27,7 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
     ShoppingListModule,
     AuthModule,  
     CoreModule,
-    StoreModule.forRoot({shoppingList: shoppingListReducer}) 
+    StoreModule.forRoot(reducers) 
   ],
   bootstrap: [AppComponent]
 })
