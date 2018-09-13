@@ -13,7 +13,7 @@ export class DataStorageService{
                 private authService: AuthService){}
 
     storeRecipes(){
-        const token = this.authService.getToken();
+        //const token = this.authService.getToken();
         //const header = new HttpHeaders().set('authorization' , 'hdbvhdvhvdbhf'); 
         
     //    return this.httpClient.put('https://ng-recipe-book-9a4ab.firebaseio.com/recipes.json',this.recipeService.getRecipes(),{
@@ -27,15 +27,15 @@ export class DataStorageService{
             reportProgress: true, 
             //params: new HttpParams().set('auth', token)
         }
-    )
+    );
         return this.httpClient.request(req);
 };
 
     fetchRecipes(){
-        const token = this.authService.getToken();
+        //const token = this.authService.getToken();
     
         //return this.httpClient.get<Recipe[]>('https://ng-recipe-book-9a4ab.firebaseio.com/recipes.json?auth=' + token)
-        return this.httpClient.get<Recipe[]>('https://ng-recipe-book-9a4ab.firebaseio.com/recipes.json?auth=' + token,{
+        return this.httpClient.get<Recipe[]>('https://ng-recipe-book-9a4ab.firebaseio.com/recipes.json', {
             observe: 'body',
             responseType: 'json'
         })        
